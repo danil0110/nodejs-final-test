@@ -9,8 +9,11 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-// app.use('/users', require('./routes/users.routes'));
 app.use('/weather', require('./routes/weather.routes'));
+
+app.get('/', (req, res) => {
+  res.status(200).send({ ok: true });
+});
 
 const port = process.env.PORT || 4000;
 
